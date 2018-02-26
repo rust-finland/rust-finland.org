@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ section.title }}</title>
+    <!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no"
+          name="viewport">
+    {% if section.description %}<meta content="{{ section.description }}" name="description">{% endif %}
+    {% if section.extra.keywords %}<meta content="{{ section.extra.keywords }}" name="keywords">{% endif %}
+    <meta content="index, follow" name="robots">
+    <meta content="{{ section.title }}" name="og:title">
+    <meta content="website" name="og:type">
+    {% if section.description %}<meta content="{{ section.description }}" name="og:description">{% endif %}
+    <meta content="{{ config.extra.site_name }}" name="og:site_name">
+    <link href="/rsfi.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <div class="content">
+    {% block content %}
+      {{ section.content | safe }}
+    {% endblock content %}
+    </div>
+  </body>
+</html>
