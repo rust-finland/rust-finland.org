@@ -2,18 +2,32 @@
 
 @import "normalize";
 
+*
+{
+    color: inherit;
+}
+
 html
 {
-    font-size: 28px;
+    font-size: 62.5%; // 1rem ~= 10px
+    margin: 0;
+    padding: 0;
 }
 
 body
 {
     font-family: 'Fira Sans', 'Helvetica Neue', Helvetica, sans-serif;
     line-height: 1.25;
-    margin: 1rem;
+    font-size: 1.6em;
     color: #111;
     background-color: #fff;
+    margin: 0;
+    padding: 0;
+
+    @media screen and (min-width: 720px)
+    {
+        font-size: 2em;
+    }
 }
 
 img
@@ -40,6 +54,19 @@ h1, h2, h3, h4, h5, h6
     line-height: 1.25;
     margin-top: 1em;
     margin-bottom: .5em;
+    position: relative;
+
+    &:target:after
+    {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 1rem;
+        background-color: #ffa;
+        content: '';
+        display: block;
+    }
 }
 
 h1 { font-size: 2em }
@@ -48,3 +75,175 @@ h3 { font-size: 1.25em }
 h4 { font-size: 1em }
 h5 { font-size: .875em }
 h6 { font-size: .75em }
+
+.container
+{
+    max-width: 42em;
+    margin: 0 auto;
+}
+
+body > header
+{
+    background-color: #122;
+    color: white;
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    .container
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap
+    }
+
+    p
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    a
+    {
+        color: white;
+    }
+
+    img, svg {
+        background: white;
+        border-radius: 50%;
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+
+        @media screen and (min-width: 540px)
+        {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+
+    img {
+        padding: 0.1rem;
+    }
+
+    svg
+    {
+        fill: #18447e;
+    }
+
+    .logo a
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 1.7rem;
+        font-family: 'Roboto Slab', serif;
+
+        span {
+            display: none;
+
+            @media screen and (min-width: 320px)
+            {
+                display: inline;
+            }
+        }
+
+        svg, img
+        {
+            margin-right: 1rem;
+        }
+
+        @media screen and (min-width: 540px)
+        {
+            font-size: 2rem;
+
+            svg, img
+            {
+                margin-right: 2rem;
+            }
+        }
+    }
+
+    .menu-toggle
+    {
+        display: block;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        font-weight: bold;
+        font-family: Roboto Mono, sans-serif;
+
+        @media screen and (min-width: 540px)
+        {
+            display: none;
+        }
+    }
+
+    nav
+    {
+        font-size: 1.6rem;
+        display: none;
+        width: 100%;
+        padding-top: 1rem;
+
+        a
+        {
+            width: 100%;
+            text-align: right;
+            display: block;
+            padding: 0.5ex 0;
+        }
+
+        &:target, &.open
+        {
+            display: block;
+        }
+    }
+
+    @media screen and (min-width: 540px)
+    {
+        position: static;
+
+        nav, nav.open, nav:target
+        {
+            padding-top: 0;
+            width: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+
+            a
+            {
+                width: auto;
+            }
+
+            a:not(:first-child) {
+                margin-left: 2rem;
+            }
+        }
+    }
+}
+
+body > main
+{
+    padding: 2rem;
+
+    h1 + p
+    {
+        font-size: 120%;
+    }
+}
+
+body > footer
+{
+    padding: 2rem;
+    font-size: 1.4rem;
+    color: #666;
+    text-align: center;
+}
