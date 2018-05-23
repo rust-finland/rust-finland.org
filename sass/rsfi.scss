@@ -113,11 +113,9 @@ body > header
         color: white;
     }
 
-    svg
-    {
+    img, svg {
         background: white;
         border-radius: 50%;
-        fill: #18447e;
         display: block;
         width: 3rem;
         height: 3rem;
@@ -128,6 +126,15 @@ body > header
             width: 4rem;
             height: 4rem;
         }
+    }
+
+    img {
+        padding: 0.1rem;
+    }
+
+    svg
+    {
+        fill: #18447e;
     }
 
     .logo a
@@ -148,7 +155,7 @@ body > header
             }
         }
 
-        svg
+        svg, img
         {
             margin-right: 1rem;
         }
@@ -157,7 +164,7 @@ body > header
         {
             font-size: 2rem;
 
-            svg
+            svg, img
             {
                 margin-right: 2rem;
             }
